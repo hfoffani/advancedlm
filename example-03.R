@@ -11,3 +11,8 @@ I = diag(1, n)
 H = matrix(1, n, n) / n
 
 xc = (I - H) %*% x
+
+vx = ( t(x) %*% (I - H) %*% x ) / (n-1)
+
+round(vx, 6)
+var(x)

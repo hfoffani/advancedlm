@@ -56,3 +56,14 @@ apply(xc, 2, mean)
 xc2 = sweep(x, 2, apply(x, 2, mean))
 ```
 
+### Variance
+
+Using linear algebra and comparing it with bundled R function `var`.
+
+```{r}
+vx = ( t(x) %*% (I - H) %*% x ) / (n-1)
+
+round(vx, 6)
+var(x)
+```
+

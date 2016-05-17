@@ -27,6 +27,8 @@ head(x)
 
 Fit with least squares.
 
+$$ (x' * x)^{-1} * x' * y $$
+
 ```{r}
 solve( t(x) %*% x ) %*% t(x) %*% y
 ```
@@ -39,6 +41,8 @@ coef( lm( mpg ~ wt + hp, data=mtcars ))
 
 
 ### Mean centered
+
+$$ (I - H) * x $$
 
 ```{r}
 n = nrow(x)
@@ -59,6 +63,8 @@ xc2 = sweep(x, 2, apply(x, 2, mean))
 ### Variance
 
 Using linear algebra and comparing it with bundled R function `var`.
+
+$$ Variance = \frac{ x' * (I - H) * x }{n-1} $$
 
 ```{r}
 vx = ( t(x) %*% (I - H) %*% x ) / (n-1)

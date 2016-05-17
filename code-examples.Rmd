@@ -23,7 +23,7 @@ x = cbind(1, mtcars$wt, mtcars$hp)
 head(x)
 ```
 
-## Least squares.
+### Least squares.
 
 Fit with least squares.
 
@@ -36,3 +36,23 @@ R does the same using `lm`
 ```{r}
 coef( lm( mpg ~ wt + hp, data=mtcars ))
 ```
+
+
+### Mean centered
+
+```{r}
+n = nrow(x)
+I = diag(1, n)
+H = matrix(1, n, n) / n
+
+xc = (I - H) %*% x
+```
+
+Testing the result. Take the mean of all columns (axis 2).
+Using `sweep` can be faster.
+
+```{r}
+apply(xc, 2, mean)
+xc2 = sweep(x, 2, apply(x, 2, mean))
+```
+

@@ -42,10 +42,10 @@ coef( lm( mpg ~ wt + hp, data=mtcars ))
 
 ### Mean centered
 
-Given
+A matrix of all-ones is often named as $J$. So given
 
-$$ H = 1_n * (1_n' * 1_n)^{-1} * 1_n' $$
-`H` is an `n x n` matrix of ones divided by n.
+$$ H = J_n * (J_n' * J_n)^{-1} * J_n' $$
+$H$ results on an $n * n$ matrix of all-ones divided by $n$.
 
 ```{r}
 n = nrow(x)

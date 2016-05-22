@@ -136,5 +136,11 @@ cor(x,y) * sd(y) / sd(x)
 mean(y) - cor(x,y) * sd(y) / sd(x) * mean(x)
 ```
 
+Same thing as before with the mean centered values:
+
+```{r}
+sum(yc * xc) / sum(xc^2)
+```
+
 
 

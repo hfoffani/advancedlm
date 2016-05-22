@@ -95,6 +95,11 @@ $$ \frac{ \tilde{y} \cdot \tilde{x}  }{ \tilde{x} \cdot \tilde{x}  } $$
 
 where $\tilde{y}$ is $y$ mean centered. Same for $\tilde{x}$
 
+Also the slope is (where $\rho_{xy}$ is the covariance between $x$ and $y$)
+
+$$ \rho_{xy} \frac{\sigma_y}{\sigma_x} $$
+
+
 ```{r}
 x = mtcars$wt
 y = mtcars$disp
@@ -106,5 +111,30 @@ slope
 lm(formula = yc ~ xc - 1)
 cor(x,y) * sd(y) / sd(x)
 ```
+
+
+### Fitting a linear regresion
+
+```{r, echo=FALSE}
+plot(x, y)
+abline(lm(y ~ x))
+```
+```{r}
+lm(y ~ x)
+```
+
+Again the slope is:
+
+$$ \rho_{xy} \frac{\sigma_y}{\sigma_x} $$
+
+And the intercept is:
+
+$$ \tilde{y} - \rho_{xy} \frac{\sigma_y}{\sigma_x} \tilde{x} $$
+
+```{r}
+cor(x,y) * sd(y) / sd(x)
+mean(y) - cor(x,y) * sd(y) / sd(x) * mean(x)
+```
+
 
 

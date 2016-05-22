@@ -123,11 +123,11 @@ abline(lm(y ~ x))
 lm(y ~ x)
 ```
 
-Again the slope is:
+Again the slope $\beta_1$ is:
 
 $$ \rho_{xy} \frac{\sigma_y}{\sigma_x} $$
 
-And the intercept is:
+And the intercept $\beta_0$ is:
 
 $$ \tilde{y} - \rho_{xy} \frac{\sigma_y}{\sigma_x} \tilde{x} $$
 
@@ -143,4 +143,25 @@ sum(yc * xc) / sum(xc^2)
 ```
 
 
+### Fitted values and residuals
+
+The fitted values are
+
+$$ \hat{y} = \beta_0 * J_n + \beta_1 * x $$
+
+and the residuals
+
+$$ e = y - \hat{y} $$
+
+```{r}
+Jn = matrix(1, length(x))
+beta1 = cor(x,y) * sd(y) / sd(x)
+beta0 = mean(y) - beta1 * mean(x)
+yhat = beta0 * Jn + beta1 * x
+e = y - yhat
+```
+
+```{r, echo=FALSE}
+plot(x, e)
+```
 

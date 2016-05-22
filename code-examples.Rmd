@@ -86,3 +86,25 @@ round(vx, 6)
 var(x)
 ```
 
+
+### Regression through the origin
+
+The slope of the fit is
+
+$$ \frac{ \tilde{y} \cdot \tilde{x}  }{ \tilde{x} \cdot \tilde{x}  } $$
+
+where $\tilde{y}$ is $y$ mean centered. Same for $\tilde{x}$
+
+```{r}
+x = mtcars$wt
+y = mtcars$disp
+
+yc = y - mean(y)
+xc = x - mean(x)
+slope = sum( yc * xc ) / sum( xc * xc )
+slope
+lm(formula = yc ~ xc - 1)
+cor(x,y) * sd(y) / sd(x)
+```
+
+

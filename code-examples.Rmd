@@ -163,5 +163,6 @@ e = y - yhat
 
 ```{r, echo=FALSE}
 plot(x, e)
+abline(h=0)
 ```
 

@@ -208,3 +208,29 @@ areequal(e, resd)
 ```
 
 
+### Generalization
+
+If we have
+$$
+    \begin{aligned}
+    y(t) &= t + 2 t^2   \\
+    x(t) &= t           \\
+    \end{aligned}
+$$
+Minimizing $\| y - \beta x \|^2$ we get
+$$
+    \begin{aligned}
+    \beta &= \frac{\langle y,x \rangle}{\langle x,x \rangle}   \\
+          &= \frac{\int_0^1 (t+2t^2)t \,dt}{\int_0^1 t^2 \,dt}    \\
+          &= \frac{\frac{1}{3} + \frac{1}{2}}{\frac{1}{3}}      \\
+          &= 2.5                                    \\
+    \end{aligned}
+$$
+
+```{r}
+t = seq(0, 1, length=10000)
+y = t + 2 * t ^ 2
+x = t
+coef(lm(y ~ x - 1))
+```
+

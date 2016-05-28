@@ -157,6 +157,8 @@ $$ e = y - \hat{y} $$
 Jn = matrix(1, length(x))
 beta1 = cor(x,y) * sd(y) / sd(x)
 beta0 = mean(y) - beta1 * mean(x)
+beta0
+beta1
 yhat = beta0 * Jn + beta1 * x
 e = y - yhat
 ```
@@ -165,4 +167,20 @@ e = y - yhat
 plot(x, e)
 abline(h=0)
 ```
+
+
+### Least squares
+
+Minimize the square of the norm of the residuals
+
+$$ \| { y - \hat{y} } \| ^2 $$
+
+```{r}
+sum(e^2)
+y_hat_other_beta = beta0 * Jn + 120 * x
+sum((y - y_hat_other_beta)^2)
+```
+
+It's a worst solution.
+
 

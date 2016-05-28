@@ -184,3 +184,11 @@ sum((y - y_hat_other_beta)^2)
 It's a worst solution.
 
 
+### Prediction
+
+```{r}
+pred = predict(lm(y ~ x))
+all(yhat == pred)
+```
+
+

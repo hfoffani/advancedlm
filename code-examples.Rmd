@@ -163,6 +163,8 @@ yhat = beta0 * Jn + beta1 * x
 e = y - yhat
 ```
 
+*In R, Jn is not needed as it promotes scalars to vector automatically.*
+
 ```{r, echo=FALSE}
 plot(x, e)
 abline(h=0)

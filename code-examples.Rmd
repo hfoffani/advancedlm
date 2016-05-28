@@ -188,9 +188,23 @@ It's a worst solution.
 
 ### Prediction
 
+```{r, echo=F}
+areequal <- function (a, b) {
+    all( abs(a - b) < 0.00001 )
+}
+```
+
 ```{r}
 pred = predict(lm(y ~ x))
-all(yhat == pred)
+areequal(yhat, pred)
+```
+
+
+### Residuals
+
+```{r}
+resd = resid(lm(y ~ x))
+areequal(e, resd)
 ```
 
 

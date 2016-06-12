@@ -352,3 +352,39 @@ lm(y ~ u)$coeff
 t(u) %*% y
 ```
 
+
+### Residuals
+
+Useful formulas
+
+$$
+e = y - \hat{y}
+$$
+
+$$
+H_X = X(X'X)^{-1}X'
+$$
+
+$$
+e = (I - H_X) y
+$$
+
+$$
+SS_{Tot} = y'(I - H_J)y
+$$
+
+$$
+SS_{Res} = y'(I - H_X)y
+$$
+
+$$
+SS_{Reg} = y'(H_X - H_J)y
+$$
+
+$$
+SS_{Tot} = SS_{Res} + SS_{Reg}
+$$
+
+$$
+R^2 = \frac{SS_{Reg}}{SS_{Tot}}
+$$

@@ -370,4 +370,13 @@ $$
     \end{aligned}
 $$
 
+Consider that $H_X$ is symmetric and idempotent.
 
+$$
+    \begin{aligned}
+    (I - H_X)J &= 0                 \\
+    H_X J &= J                      \\
+    H_X H_J &= H_J                  \\
+    H_J &= H_J H_X
+    \end{aligned}
+$$
